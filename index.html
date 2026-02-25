@@ -200,23 +200,46 @@ Hey Patrick — great chatting today. To make sure we capture everything and don
 
 <script>
 function submitForm(){
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
   const inputs = document.querySelectorAll('input, textarea, select');
-  let data = {};
+  let data = { _subject: 'Project Discovery Form — Patrick Coyle' };
+  let fieldNum = 0;
+  
   inputs.forEach(el => {
     if(el.type === 'checkbox' && el.checked){
-      const section = el.closest('.checkbox-group')?.previousElementSibling?.textContent || 'other';
-      if(!data[section]) data[section] = [];
-      data[section].push(el.parentElement.textContent.trim());
+      const section = el.closest('.checkbox-group')?.previousElementSibling?.textContent?.trim() || 'Services';
+      const key = section.substring(0, 50);
+      if(!data[key]) data[key] = '';
+      data[key] += (data[key] ? ', ' : '') + el.parentElement.textContent.trim();
     } else if(el.type === 'radio' && el.checked){
       data[el.name] = el.value;
     } else if((el.type === 'text' || el.type === 'email' || el.type === 'url' || el.type === 'tel' || el.tagName === 'TEXTAREA') && el.value){
-      const label = el.previousElementSibling?.textContent || 'field';
+      const label = el.previousElementSibling?.textContent?.trim() || ('Field_' + (++fieldNum));
       data[label] = el.value;
     }
   });
-  const mailto = 'mailto:jlasalle@dreamerai.io?subject=Project%20Discovery%20Form%20-%20Patrick%20Coyle&body=' + encodeURIComponent(JSON.stringify(data, null, 2));
-  window.location.href = mailto;
-  alert('Thank you Patrick! Your responses are being sent to Jason. If the email client didn\\'t open, please copy your responses and email them to jlasalle@dreamerai.io');
+
+  fetch('https://formsubmit.co/ajax/jlasalle@dreamerai.io', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(r => r.json())
+  .then(res => {
+    if(res.success === 'true' || res.success === true){
+      document.querySelector('.form-body').innerHTML = '<div style="text-align:center;padding:60px 20px;"><div style="font-size:48px;margin-bottom:16px;">✅</div><h2 style="font-family:Cormorant Garamond,Georgia,serif;color:#1A1A2E;font-size:1.5rem;">Thank You, Patrick!</h2><p style="color:#555;margin-top:12px;font-size:.95rem;">Your responses have been submitted successfully.<br>Jason will review and get back to you with a proposal shortly.</p><p style="color:#C5A55A;margin-top:24px;font-weight:600;">Dreamer AI Solutions</p></div>';
+    } else {
+      throw new Error('Submit failed');
+    }
+  })
+  .catch(err => {
+    btn.textContent = 'Submit Discovery Form →';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again, or email your responses directly to jlasalle@dreamerai.io');
+  });
 }
 </script>
 
