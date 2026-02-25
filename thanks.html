@@ -7,31 +7,34 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',system-ui,sans-serif;background:#f4f4f4;color:#333;min-height:100vh;display:flex;align-items:center;justify-content:center}
-.card{max-width:520px;margin:20px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);text-align:center}
-.card-header{background:linear-gradient(135deg,#0F0F1A,#1A1A2E,#2a2040);padding:40px 32px}
-.card-header h1{font-family:'Cormorant Garamond',Georgia,serif;color:#C5A55A;font-size:2rem;font-weight:300}
-.card-header .check{font-size:3rem;margin-bottom:12px}
-.card-body{padding:32px}
-.card-body p{font-size:1rem;color:#555;margin-bottom:16px;line-height:1.7}
-.card-body .name{font-weight:700;color:#1A1A2E}
-.cta{display:inline-block;background:#C5A55A;color:#1A1A2E;padding:12px 32px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.9rem;margin-top:8px}
-.footer{padding:16px;font-size:.75rem;color:#999}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#f4f4f4;color:#333;line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.wrap{max-width:600px;margin:0 auto;padding:20px;width:100%}
+.card{background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.06);overflow:hidden}
+.header{background:linear-gradient(135deg,#0F0F1A,#1A1A2E,#2a2040);padding:40px 32px;text-align:center}
+.header h1{font-family:'Cormorant Garamond',Georgia,serif;color:#C5A55A;font-size:2rem;font-weight:300}
+.header .badge{display:inline-block;background:rgba(197,165,90,.15);border:1px solid rgba(197,165,90,.3);color:#C5A55A;padding:4px 16px;border-radius:50px;font-size:.75rem;font-weight:600;margin-top:16px;letter-spacing:.05em}
+.body{padding:48px 32px;text-align:center}
+.check{font-size:64px;margin-bottom:16px}
+.body h2{font-family:'Cormorant Garamond',Georgia,serif;color:#1A1A2E;font-size:1.6rem;margin-bottom:12px}
+.body p{color:#555;font-size:.95rem;line-height:1.7;margin-bottom:8px}
+.gold{color:#C5A55A;font-weight:600;margin-top:24px}
 </style>
 </head>
 <body>
+<div class="wrap">
 <div class="card">
-  <div class="card-header">
-    <div class="check">✅</div>
-    <h1>Thank You!</h1>
-  </div>
-  <div class="card-body">
-    <p>Your discovery form has been submitted successfully. Jason will review your responses and put together a custom proposal tailored to your needs.</p>
-    <p>Expect to hear back within <strong>24-48 hours</strong>.</p>
-    <p>— <span class="name">Jason LaSalle</span><br>Dreamer AI Solutions</p>
-    <a href="https://dreamerai.io" class="cta">Visit dreamerai.io →</a>
-  </div>
-  <div class="footer">Dreamer AI Solutions · dreamerai.io</div>
+<div class="header">
+  <h1>Dreamer AI Solutions</h1>
+  <div class="badge">FORM SUBMITTED</div>
+</div>
+<div class="body">
+  <div class="check">✅</div>
+  <h2>Thank You, Patrick!</h2>
+  <p>Your responses have been submitted successfully.</p>
+  <p>Jason will review everything and get back to you with a proposal for North Jersey Pet Sitters shortly.</p>
+  <p class="gold">We're excited to get started! 🐾</p>
+</div>
+</div>
 </div>
 </body>
 </html>

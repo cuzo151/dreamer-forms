@@ -222,24 +222,36 @@ function submitForm(){
     }
   });
 
-  fetch('https://formsubmit.co/ajax/jlasalle@dreamerai.io', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(data)
-  })
-  .then(r => r.json())
-  .then(res => {
-    if(res.success === 'true' || res.success === true){
-      document.querySelector('.form-body').innerHTML = '<div style="text-align:center;padding:60px 20px;"><div style="font-size:48px;margin-bottom:16px;">✅</div><h2 style="font-family:Cormorant Garamond,Georgia,serif;color:#1A1A2E;font-size:1.5rem;">Thank You, Patrick!</h2><p style="color:#555;margin-top:12px;font-size:.95rem;">Your responses have been submitted successfully.<br>Jason will review and get back to you with a proposal shortly.</p><p style="color:#C5A55A;margin-top:24px;font-weight:600;">Dreamer AI Solutions</p></div>';
-    } else {
-      throw new Error('Submit failed');
-    }
-  })
-  .catch(err => {
-    btn.textContent = 'Submit Discovery Form →';
-    btn.disabled = false;
-    alert('Something went wrong. Please try again, or email your responses directly to jlasalle@dreamerai.io');
+  // Send via EmailJS-style: encode as form and POST to formsubmit
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://formsubmit.co/jlasalle@dreamerai.io';
+  
+  // Add hidden fields
+  Object.entries(data).forEach(([key, val]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = typeof val === 'string' ? val : JSON.stringify(val);
+    form.appendChild(input);
   });
+  
+  // Redirect to thanks page after submit
+  const next = document.createElement('input');
+  next.type = 'hidden';
+  next.name = '_next';
+  next.value = window.location.origin + window.location.pathname.replace('index.html','') + 'thanks.html';
+  form.appendChild(next);
+
+  // Disable captcha
+  const captcha = document.createElement('input');
+  captcha.type = 'hidden';
+  captcha.name = '_captcha';
+  captcha.value = 'false';
+  form.appendChild(captcha);
+  
+  document.body.appendChild(form);
+  form.submit();
 }
 </script>
 
