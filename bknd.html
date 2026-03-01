@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BKND Development — Client Onboarding | Dreamer AI Solutions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f0c29;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;display:flex;justify-content:center;padding:24px}
+.container{max-width:640px;width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);padding:40px 32px;text-align:center}
+.header img{width:48px;height:48px;margin-bottom:12px}
+.header h1{color:#C5A55A;font-size:1.3rem;font-weight:700;letter-spacing:.05em;margin-bottom:4px}
+.header p{color:rgba(255,255,255,.6);font-size:.85rem}
+.header .client-name{color:#fff;font-size:1.1rem;font-weight:600;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15)}
+.body{padding:32px}
+.section{margin-bottom:28px}
+.section-title{font-size:.85rem;font-weight:700;color:#0f0c29;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #C5A55A;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:1.1rem}
+.note{background:#fdf6e3;border-left:3px solid #C5A55A;padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:24px;font-size:.85rem;color:#555;line-height:1.6}
+.note strong{color:#0f0c29}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.85rem;font-weight:600;color:#333;margin-bottom:6px}
+.field label .optional{color:#999;font-weight:400;font-size:.8rem}
+.field input,.field textarea,.field select{width:100%;padding:12px 16px;border:1.5px solid #ddd;border-radius:8px;font-size:.95rem;font-family:inherit;transition:border-color .2s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:#667eea;box-shadow:0 0 0 3px rgba(102,126,234,.15)}
+.field textarea{resize:vertical;min-height:80px}
+.field .hint{font-size:.78rem;color:#999;margin-top:4px}
+.divider{height:1px;background:#eee;margin:28px 0}
+.submit-section{text-align:center;padding:8px 0 16px}
+.submit-btn{background:linear-gradient(135deg,#0f0c29,#302b63);color:#C5A55A;border:none;padding:16px 48px;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;letter-spacing:.03em;transition:transform .2s,box-shadow .2s}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,12,41,.3)}
+.security{text-align:center;padding:16px 32px 24px;font-size:.78rem;color:#999}
+.security .lock{font-size:1rem;margin-bottom:4px;display:block}
+.footer{background:#fafaf7;padding:20px 32px;text-align:center;border-top:1px solid #eee}
+.footer p{color:#999;font-size:.78rem;margin:2px 0}
+.footer a{color:#C5A55A;text-decoration:none}
+.success-msg{display:none;text-align:center;padding:60px 32px}
+.success-msg h2{color:#0f0c29;font-size:1.5rem;margin-bottom:12px}
+.success-msg p{color:#666;font-size:1rem;line-height:1.6}
+.success-msg .check{font-size:3rem;margin-bottom:16px;display:block}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>✦ DREAMER AI SOLUTIONS</h1>
+  <p>Client Onboarding Portal</p>
+  <div class="client-name">🏗️ BKND Development</div>
+</div>
+
+<form id="onboardingForm" action="https://formsubmit.co/jlasalle@dreamerai.io" method="POST">
+<!-- FormSubmit config -->
+<input type="hidden" name="_subject" value="🚗 BKND Development — Client Onboarding Form Submitted">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="">
+<input type="text" name="_honey" style="display:none">
+
+<div class="body">
+
+  <div class="note">
+    <strong>Hey! 👋</strong> Thanks for trusting Dreamer AI Solutions with your digital marketing. To get started, we need access to a few of your business accounts. This info is kept <strong>100% confidential</strong> and is only used to set up and manage your marketing campaigns.
+  </div>
+
+  <!-- BUSINESS INFO -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🏢</span> Business Information</div>
+    <div class="field">
+      <label>Business Name</label>
+      <input type="text" name="Business Name" value="BKND Development" required>
+    </div>
+    <div class="field">
+      <label>Owner Name</label>
+      <input type="text" name="Owner Name" required placeholder="Your full name">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="Email" required placeholder="your@email.com">
+    </div>
+    <div class="field">
+      <label>Phone Number</label>
+      <input type="tel" name="Phone" required placeholder="(xxx) xxx-xxxx">
+    </div>
+    <div class="field">
+      <label>Business Address</label>
+      <input type="text" name="Business Address" placeholder="Full street address">
+    </div>
+    <div class="field">
+      <label>Website <span class="optional">(if any)</span></label>
+      <input type="url" name="Website" placeholder="https://...">
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- GOOGLE BUSINESS -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📍</span> Google Business Profile</div>
+    <div class="field">
+      <label>Google Account Email</label>
+      <input type="email" name="Google Business Email" placeholder="email@gmail.com">
+      <div class="hint">The Gmail/Google account linked to your Google Business Profile</div>
+    </div>
+    <div class="field">
+      <label>Google Account Password</label>
+      <input type="password" name="Google Business Password" placeholder="••••••••">
+      <div class="hint">We need this to access and optimize your Google Business listing</div>
+    </div>
+    <div class="field">
+      <label>Do you have a Google Business Profile set up? <span class="optional">(if unsure, say no)</span></label>
+      <select name="Google Business Profile Exists">
+        <option value="">— Select —</option>
+        <option value="Yes">Yes, it's set up</option>
+        <option value="No">No / Not sure</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FACEBOOK -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📘</span> Facebook</div>
+    <div class="field">
+      <label>Facebook Login Email or Phone</label>
+      <input type="text" name="Facebook Email/Phone" placeholder="email or phone number">
+    </div>
+    <div class="field">
+      <label>Facebook Password</label>
+      <input type="password" name="Facebook Password" placeholder="••••••••">
+    </div>
+    <div class="field">
+      <label>Facebook Business Page URL <span class="optional">(if any)</span></label>
+      <input type="url" name="Facebook Page URL" placeholder="https://facebook.com/...">
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- INSTAGRAM -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📸</span> Instagram</div>
+    <div class="field">
+      <label>Instagram Username</label>
+      <input type="text" name="Instagram Username" placeholder="@yourbusiness">
+    </div>
+    <div class="field">
+      <label>Instagram Password</label>
+      <input type="password" name="Instagram Password" placeholder="••••••••">
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TIKTOK -->
+  <div class="section">
+    <div class="section-title"><span class="icon">🎵</span> TikTok</div>
+    <div class="field">
+      <label>TikTok Username</label>
+      <input type="text" name="TikTok Username" placeholder="@yourbusiness">
+    </div>
+    <div class="field">
+      <label>TikTok Password</label>
+      <input type="password" name="TikTok Password" placeholder="••••••••">
+    </div>
+    <div class="field">
+      <label>Don't have TikTok yet?</label>
+      <select name="TikTok Status">
+        <option value="">— Select —</option>
+        <option value="Have account">I have an account</option>
+        <option value="Need account created">I need one created for me</option>
+        <option value="Not interested">Not interested in TikTok</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ADDITIONAL -->
+  <div class="section">
+    <div class="section-title"><span class="icon">📝</span> Additional Notes</div>
+    <div class="field">
+      <label>Any other logins or info we should know? <span class="optional">(optional)</span></label>
+      <textarea name="Additional Notes" placeholder="Yelp login, YouTube channel, specific goals, etc."></textarea>
+    </div>
+  </div>
+
+  <div class="submit-section">
+    <button type="submit" class="submit-btn">Submit Securely →</button>
+  </div>
+
+</div>
+</form>
+
+<div class="security">
+  <span class="lock">🔒</span>
+  Your credentials are transmitted securely and stored confidentially.<br>
+  Only the Dreamer AI Solutions team has access.
+</div>
+
+<div class="footer">
+  <p><strong>Dreamer AI Solutions</strong></p>
+  <p><a href="https://dreamerai.io">dreamerai.io</a> · jlasalle@dreamerai.io</p>
+</div>
+
+</div>
+
+<script>
+// Set the _next redirect to a thank-you experience
+document.querySelector('input[name="_next"]').value = window.location.href + '?success=true';
+
+// Check for success param
+if(window.location.search.includes('success=true')){
+  document.getElementById('onboardingForm').style.display='none';
+  const msg = document.createElement('div');
+  msg.innerHTML = '<div style="text-align:center;padding:60px 32px"><div style="font-size:3rem;margin-bottom:16px">✅</div><h2 style="color:#0f0c29;font-size:1.5rem;margin-bottom:12px">All Set!</h2><p style="color:#666;font-size:1rem;line-height:1.6">Thanks for submitting your info. The Dreamer AI team will get started right away.<br><br>We\'ll reach out shortly with next steps. 🚀</p></div>';
+  document.querySelector('.body').replaceWith(msg.firstChild);
+}
+</script>
+
+</div>
+</body>
+</html>
